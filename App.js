@@ -2,23 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom/client"
 
 
-const heading = React.createElement(
-    "h1",
-    {
-      id: "title",
-    },
-    "heading"
-  );
+const Title = () => (
+  <h1 id="title">Head</h1>
+)
+  const HeaderComponent = () => {
+    return(
+      <div>
+        <Title />
+        <h1>Header Component</h1>
+      </div>
 
-  const container = React.createElement(
-    "div",
-    {
-      id: "container",
-    },
-    [heading]
-  );
-  
+    )
+  }
   // create root using createRoot
   const root = ReactDOM.createRoot(document.getElementById("root"));
   // passing react element inside root
-  root.render(container);
+  root.render(<HeaderComponent />);

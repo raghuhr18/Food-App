@@ -1,0 +1,37 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    padding: 10px;
+}
+.container > a > img {
+    width: 80px;
+    height: auto;
+}
+.nav-list > ul{
+    display: flex;
+    flex-direction: row;
+    margin: 0px 10px;
+}
+.nav-list > ul > li {
+    list-style: none;
+    margin: 0px 10px;
+}
+.card{
+    height: 400px;
+    width: 200px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;;
+}
+.card > img {
+    width: 100%;
+}
+.card > p {
+    overflow-wrap: break-word;
+}
+.restaurant-list {
+    display: flex;
+    flex-wrap: wrap;
+}

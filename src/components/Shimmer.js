@@ -2,7 +2,11 @@ import React from 'react'
 
 const Shimmer = () => {
   return (
-    <h1>Shimmer UI Loading....</h1>
+    <div className='restaurant-list'>
+        {Array(20).fill("").map((e,index) => 
+            <div key={index} className='shimmer-card'></div>
+        )}
+    </div>
   )
 }
 

@@ -35,3 +35,22 @@
     display: flex;
     flex-wrap: wrap;
 }
+.shimmer-card{
+    width: 250px;
+    height: 250px;
+    padding: 10px;
+    margin: 10px;;
+    background-color: rgb(150, 150, 150);
+}
+.menu-card{
+    border: 1px solid grey;
+    display: flex;
+    padding: 10px;
+    margin: 0 auto;
+    width: 60%;
+}
+.menu-card-img > img{
+    border-radius: 20px;
+    width: 400px;
+    padding: 10px;
+}

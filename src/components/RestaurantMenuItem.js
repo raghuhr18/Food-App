@@ -8,11 +8,12 @@ const RestaurantMenuItem = (
         category,
         imageId,
         description,
-
     }
+
 ) => {
   return (
     <div className='menu-card'>
+{/* 
         <div>
             <h1>{name}</h1>
             <p>{price/100 + " rupees"} </p>
@@ -22,7 +23,7 @@ const RestaurantMenuItem = (
         <div className='menu-card-img'>
             <img src={IMG_CDN_URL + imageId } />
         </div>
-        <p></p>
+        <p></p> */}
     </div>
   )
 }

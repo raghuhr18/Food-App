@@ -1,15 +1,17 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client"
 import Body from "./src/components/Body";
 import Head from "./src/components/Head";
 import Footer from "./src/components/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import Contact from "./src/components/Contact";
+// import Contact from "./src/components/Contact";
 import About from "./src/components/About";
 import Error from "./src/components/Error";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import Profile from "./src/components/Profile";
 
+// const Body = lazy(() => import("./src/components/Body"))
+const Contact = lazy(() => import("./src/components/Contact"))
 
   const Applayout = () => {
     return(
@@ -29,7 +31,7 @@ import Profile from "./src/components/Profile";
       children:[
         {
           path: "/contact",
-          element: <Contact /> 
+          element: <Suspense fallback={"Loading..."}><Contact /> </Suspense>
         },
         {
           path: "/about",

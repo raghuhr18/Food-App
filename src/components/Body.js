@@ -3,6 +3,7 @@ import { restaurantList } from "../../constants";
 import RestaurantCard from "./RestaurantCard"
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 function searchClicked(allRestaurants, searchText) {
     console.log(searchText)
@@ -19,6 +20,7 @@ const Body = () => {
     const [allRestaurants , setAllRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([])
 
+
     useEffect(() => {
         getRestaurants();
     }, [])
@@ -29,6 +31,7 @@ const Body = () => {
         setAllRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
+ 
 
     if(!filteredRestaurants) return null;
     return (allRestaurants?.length === 0) ? (<Shimmer /> ): (
@@ -54,5 +57,6 @@ const Body = () => {
         : <h1>No restaurants Found</h1>}
     </>
   )
+
 }
 export default Body;

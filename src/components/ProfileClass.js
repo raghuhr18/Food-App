@@ -13,7 +13,7 @@ export class ProfileClass extends Component {
   }
   async componentDidMount() {
     console.log("component did mount");
-    const data = await fetch("https://api.github.com/users/akshaymarch7");
+    const data = await fetch("https://api.github.com/users/raghuhr18");
     const json = await data.json();
     this.setState({ 
       userInfo: json,
@@ -25,9 +25,13 @@ export class ProfileClass extends Component {
     return (
       <div>
         <p>ProfileClass</p> 
-        <h1>name: {this.state.userInfo.name}</h1>
-        <h1>location: {this.state.userInfo.location}</h1>
-        <img src={this.state.userInfo.avatar_url} />
+        { this.state.userInfo?.name && 
+          <div>
+            <h1>name: {this.state.userInfo.name}</h1>
+            <h1>location: {this.state.userInfo.location}</h1>
+            <img src={this.state.userInfo.avatar_url} />
+          </div>
+        }
       </div>
     )
   }

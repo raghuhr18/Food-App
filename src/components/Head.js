@@ -3,16 +3,16 @@ import Logo from "../assets/img/food-shopping.png"
 
 const Head = () => {
     return(
-      <div className="container">
+      <div className="flex justify-between items-center bg-violet-200 p-4 shadow-lg">
         <a href="/">
-          <img src={Logo} alt="Logo"/>
+          <img src={Logo} className="w-20 h-auto" alt="Logo"/>
         </a>
 
-        <div className="nav-list">
-          <ul>
-            <li><Link to={"/"}>Home</Link></li> 
-            <li><Link to={"/about"}>About</Link></li>
-            <li><Link to={"/contact"}>Contact us</Link></li>
+        <div className="">
+          <ul className="text-md font-bold flex justify-between">
+            <li className="mx-5"><Link to={"/"} >Home</Link></li> 
+            <li className="mx-5"><Link to={"/about"}>About</Link></li>
+            <li className="mx-5"><Link to={"/contact"}>Contact us</Link></li>
             {/* <Link to={}><li>Cart</li>  </Link>           */}
           </ul>
         </div>

@@ -13,11 +13,11 @@ const RestaurantMenu = () => {
     if(!restaurantItem ) return <Shimmer />;
     return (
         
-        <div>               
+        <div className='flex flex-col items-center justify-center'>               
             {restaurantItem.map((item) => (
-                <div className='menuCard' key={item?.id}>
+                <div className='border-blue-500 w-[60%] flex flex-row justify-between m-5 bg-lime-100 p-6 items-center rounded-2xl' key={item?.id}>
                     <div>
-                        <h2 className="restaurant-title" >{item?.name}</h2>
+                        <h2 className="text-2xl font-bold py-2" >{item?.name}</h2>
 
                         <p>{"Category : " + item?.category}</p>
                         
@@ -30,11 +30,11 @@ const RestaurantMenu = () => {
                         
                         {item?.ratings?.aggregatedRating?.rating && <h3>{item?.ratings?.aggregatedRating?.rating + " ratings"}</h3>}
                     </div>
-                    <div>
+                    <div className='w-[100%] p-2'>
                         {(item?.imageId) ? 
-                        <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" + item?.imageId}  alt='Item Image'/> :
+                        <img className="float-right rounded-lg" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" + item?.imageId}  alt='Item Image'/> :
     
-                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/xckb305lhkjz9qjixjg4"  alt='Item Image'/>
+                        <img className="float-right rounded-lg" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/xckb305lhkjz9qjixjg4"  alt='Item Image'/>
                         }   
                     </div>
                     

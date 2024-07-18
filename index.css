@@ -1,4 +1,9 @@
-.container{
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -69,4 +74,4 @@
     padding: 20px;
     width: 230px;
     height: auto;
-}
+} */

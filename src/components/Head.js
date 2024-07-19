@@ -13,6 +13,7 @@ const Head = () => {
             <li className="mx-5"><Link to={"/"} >Home</Link></li> 
             <li className="mx-5"><Link to={"/about"}>About</Link></li>
             <li className="mx-5"><Link to={"/contact"}>Contact us</Link></li>
+            <li className="mx-5"><Link to={"/instamart"}>Instamart</Link></li>
             {/* <Link to={}><li>Cart</li>  </Link>           */}
           </ul>
         </div>

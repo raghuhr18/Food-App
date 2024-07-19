@@ -9,6 +9,7 @@ import About from "./src/components/About";
 import Error from "./src/components/Error";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import Profile from "./src/components/Profile";
+import Instamart from "./src/components/Instamart";
 
 // const Body = lazy(() => import("./src/components/Body"))
 const Contact = lazy(() => import("./src/components/Contact"))
@@ -30,8 +31,16 @@ const Contact = lazy(() => import("./src/components/Contact"))
       errorElement: <Error />,
       children:[
         {
+          path: "/",
+          element: <Body /> 
+        },
+        {
           path: "/contact",
           element: <Suspense fallback={"Loading..."}><Contact /> </Suspense>
+        },
+        {
+          path: "/instamart",
+          element: <Suspense fallback={"Loading..."}><Instamart /> </Suspense>
         },
         {
           path: "/about",
@@ -43,10 +52,7 @@ const Contact = lazy(() => import("./src/components/Contact"))
             }
           ]
         },
-        {
-          path: "/",
-          element: <Body /> 
-        },
+
         {
           path: "/restaurentMenu/:id",
           element: <RestaurantMenu /> 

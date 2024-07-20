@@ -13,6 +13,7 @@ const Body = () => {
     const [allRestaurants , setAllRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([])
 
+    console.log(filteredRestaurants)
     const isOnline = useOnline();
 
     useEffect(() => {
@@ -22,8 +23,28 @@ const Body = () => {
     async function getRestaurants() {
         const data = await fetch(FETCH_MENU_URL);
         const json = await data.json();
-        setAllRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
+
+        // initialize checkJsonData() function to check Swiggy Restaurant data
+        const checkJsonData = (jsonData) => {
+            // function checkJsonData(jsonData) {
+            for (let i = 0; i < jsonData?.data?.cards.length; i++) {
+            // initialize checkData for Swiggy Restaurant data
+            let checkData =
+                json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+                ?.restaurants;
+
+            // if checkData is not undefined then return it
+            if (checkData !== undefined) {
+                return checkData;
+            }
+            }
+        }
+        // call the checkJsonData() function which return Swiggy Restaurant data
+        const resData = checkJsonData(json);
+
+        setAllRestaurants(resData);
+        setFilteredRestaurants(resData)
     }
  
     if(!isOnline) {return(<h1>Please check your internet connetion</h1>)}
@@ -43,7 +64,7 @@ const Body = () => {
         <div className="flex flex-wrap m-auto items-center justify-center">
             
             {filteredRestaurants.map((restaurant) => 
-            <Link className="shadow-lg m-5 min-h-[450px] hover:shadow-2xl" to={"/restaurentMenu/" + restaurant.info.id} key={restaurant.info.id}>
+            <Link className="shadow-lg m-5 min-h-[480px] hover:shadow-2xl" to={"/restaurentMenu/" + restaurant.info.id} key={restaurant.info.id}>
                 <RestaurantCard {...restaurant.info} />
              </Link>
             )}

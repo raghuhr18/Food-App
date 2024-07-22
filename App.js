@@ -10,6 +10,9 @@ import Error from "./src/components/Error";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import Profile from "./src/components/Profile";
 import Instamart from "./src/components/Instamart";
+import { Provider } from "react-redux";
+import store from "./src/utils/store";
+import Cart from "./src/components/Cart";
 
 // const Body = lazy(() => import("./src/components/Body"))
 const Contact = lazy(() => import("./src/components/Contact"))
@@ -22,11 +25,11 @@ const Contact = lazy(() => import("./src/components/Contact"))
       }
     })
     return(
-    <>
+    <Provider store={store}>
       <Head/>
       <Outlet />
       <Footer />
-    </>
+    </Provider>
     )
   }
 
@@ -47,6 +50,10 @@ const Contact = lazy(() => import("./src/components/Contact"))
         {
           path: "/instamart",
           element: <Suspense fallback={"Loading..."}><Instamart /> </Suspense>
+        },
+        {
+          path: "/cart",
+          element: <Cart />
         },
         {
           path: "/about",

@@ -2,10 +2,14 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/img/food-shopping.png";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+import store from "../utils/store";
 
 
 const Head = () => {
   const {user} = useContext(UserContext);
+
+  const cart = useSelector((store) => store.cart.items.length)
      return(
       <div className="flex justify-between items-center bg-violet-200 p-4 shadow-lg">
         <a href="/">
@@ -20,6 +24,7 @@ const Head = () => {
             <li className="mx-5"><Link to={"/about"}>About</Link></li>
             <li className="mx-5"><Link to={"/contact"}>Contact us</Link></li>
             <li className="mx-5"><Link to={"/instamart"}>Instamart</Link></li>
+            <li className="mx-5"><Link to={"/cart"}>Cart -  {cart} Items</Link></li>
             {/* <Link to={}><li>Cart</li>  </Link>           */}
           </ul>
         </div>
